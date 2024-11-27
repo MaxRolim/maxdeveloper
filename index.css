@@ -33,9 +33,10 @@ html, body {
 }
 
 .textoinicio img {
-    margin-top: 20px;
+    margin-top: 50px;
     width: 25%;
     height: auto;
     border: 2px solid #000;
     border-radius: 50%;
+    gap:10px;
 }
