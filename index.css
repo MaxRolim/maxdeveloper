@@ -62,19 +62,10 @@ body {
     .rodape1 {
         flex-direction: column;
     }
-    .textoinicio img
-    {
-        margin-top: 70px;
-    }
-    
 }
 
 @media (min-width: 601px) and (max-width: 1024px) { /* Estilos para telas médias */
     .rodape1 {
         flex-direction: row;
-    }
-    .textoinicio img
-    {
-        margin-top: 70px;
     }
 }
