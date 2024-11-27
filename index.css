@@ -5,8 +5,7 @@ html, body {
 }
 
 .textoinicio {
-    
-    position: relative; 
+ 
     margin-top: 100%;
     display: flex;
     flex-direction: column;
