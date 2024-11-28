@@ -10,6 +10,30 @@
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
+    <script src="script.js"></script>
+
+    <!-- Conteiner do chat -->
+
+    <div id="chat">
+
+        <!-- Cabeçalho do chat -->
+
+        <div id="chat-header">Chat de contato</div>
+
+        <!-- Corpo onde aparecem as mensagens do chat-->
+         <div id="chat-body">
+            <p>Qual seu email para contato ?</p> <!-- mensagem inicial -->
+         </div>
+
+        <!-- Rodape do site com mensagem de texto e botão-->
+
+         <div id="chat-footer">
+            <input id="email" type="email" placeholder="Digite seu email!" required></input> <!-- campo para email-->
+            <textarea id="message" placeholder="Entre em contato" required></textarea>  <!-- Campo para mensagem -->         
+            <button onclick="sendMessage()">Enviar</button> <!-- Botão que chama a função sendMessage -->
+        </div>
+    </div>
+
     <div class="rodape1">
         <div class="textoinicio">
             <h1>Max <span class="luxo">Full stack</span> developer</h1>
@@ -17,5 +41,6 @@
             <img src="img.png"  alt="perfil">
         </div>
     </div>
+
 </body>
 </html>
