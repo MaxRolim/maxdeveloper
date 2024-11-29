@@ -6,7 +6,7 @@ const app = express(); // Cria o app Express
 require('dotenv').config(); // Carrega as variáveis de ambiente do arquivo .env
 
 app.use(cors({
-    origin: 'https://maxrolim.github.io/maxdeveloper/', // Permite qualquer origem
+    origin: 'https://maxrolim.github.io/maxdeveloper', // Permite qualquer origem
 }));
 app.use(express.json()); // Habilita o parse de JSON no corpo das requisições
 
@@ -22,18 +22,8 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-// Rota GET para servir o arquivo HTML do chat
-app.get('/', (req, res) => {
-    const filePath = path.resolve(__dirname, '..', 'maxdeveloper', 'index.html'); // Caminho absoluto para o index.html
-    console.log('Servindo arquivo:', filePath); // Log para verificar o caminho
-    res.sendFile(filePath, (err) => {
-        if (err) {
-            console.error('Erro ao enviar o arquivo:', err);
-            res.status(500).send('Erro ao carregar a página');
-        }
-    });
-});
-app.use(express.static(path.join(__dirname, '..', 'maxdeveloper', 'index.html')));
+
+app.use(express.static(path.join(__dirname,'index.html')));
 // Rota POST para enviar email
 app.post('/send-email', async (req, res) => {
     const { email, message } = req.body; // Extrai o email e a mensagem do corpo da requisição
@@ -67,4 +57,3 @@ app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
 // Inicia o servidor na porta 3000
-app.listen(3000, () => console.log('Servidor rodando na porta 3000'));
