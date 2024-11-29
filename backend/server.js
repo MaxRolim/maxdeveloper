@@ -52,7 +52,7 @@ app.post('/send-email', async (req, res) => {
     }
 });
 //Isso garante que o seu servidor escute a porta que o Railway está configurando automaticamente
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
