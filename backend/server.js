@@ -6,7 +6,7 @@ const app = express(); // Cria o app Express
 require('dotenv').config(); // Carrega as variáveis de ambiente do arquivo .env
 
 app.use(cors({
-    origin: 'https://maxrolim.github.io/maxdeveloper', // Permite qualquer origem
+    origin: 'https://maxrolim.github.io/maxdeveloper/', // Permite qualquer origem
 }));
 app.use(express.json()); // Habilita o parse de JSON no corpo das requisições
 
