@@ -9,7 +9,7 @@ async function sendMessage() {
     }
     // tenta enviar mensagem para o backend 
     try {
-        const response = await fetch('backend-production-a78d.up.railway.app', {
+        const response = await fetch('site-production-aba7.up.railway.app', {
         method: 'POST', //Metodo http usado para enviar os dados 
         headers: {
             'Content-Type': 'application/json', //formato dos dados enviados
