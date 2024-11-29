@@ -23,7 +23,7 @@ const transporter = nodemailer.createTransport({
 });
 
 
-app.use(express.static(path.join(__dirname,'index.html')));
+
 // Rota POST para enviar email
 app.post('/send-email', async (req, res) => {
     const { email, message } = req.body; // Extrai o email e a mensagem do corpo da requisição
