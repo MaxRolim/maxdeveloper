@@ -3,7 +3,7 @@ const cors = require('cors');
 
 module.exports = async (req, res) => {
   cors({
-    origin: 'https://maxrolim.github.io/maxdeveloper', // Domínio do frontend
+    origin: 'https://maxdeveloper.vercel.app', // Domínio do frontend
   })(req, res, async () => {
     if (req.method === 'POST') {
       const { email, message } = req.body;
