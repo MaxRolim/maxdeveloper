@@ -9,7 +9,7 @@ async function sendMessage() {
     }
     // tenta enviar mensagem para o backend 
     try {
-        const response = await fetch('https://maxdeveloper.vercel.app/send-email/', {
+        const response = await fetch('https://maxdeveloper.vercel.app/', {
         method: 'POST', //Metodo http usado para enviar os dados 
         headers: {
             'Content-Type': 'application/json', //formato dos dados enviados
