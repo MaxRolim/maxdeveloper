@@ -4,7 +4,7 @@ const cors = require('cors');
 module.exports = async (req, res) => {
   // Configuração do CORS para permitir requisições do seu frontend
   cors({
-    origin: 'https://maxdeveloper.vercel.app/send-email', // Altere se o domínio do seu frontend mudar
+    origin: 'https://maxdeveloper.vercel.app/api/send-email', // Altere se o domínio do seu frontend mudar
   })(req, res, async () => {
     // Verifica se o método da requisição é POST
     if (req.method === 'POST') {
