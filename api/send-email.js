@@ -2,41 +2,41 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 
 module.exports = async (req, res) => {
-  // Configuração do CORS para permitir requisições do seu frontend
   cors({
-    origin: 'https://maxdeveloper.vercel.app', // Altere se o domínio do seu frontend mudar
+    origin: 'https://maxdeveloper.vercel.app', // Domínio do frontend
   })(req, res, async () => {
-    // Verifica se o método da requisição é POST
     if (req.method === 'POST') {
-      const { email, message } = req.body; // Extrai os dados do corpo da requisição
+      const { email, message } = req.body;
 
-      // Valida os campos obrigatórios
+      // Validação de campos obrigatórios
       if (!email || !message) {
         return res.status(400).send('Campos obrigatórios não preenchidos.');
       }
 
       try {
-        // Configuração do transporte de email usando o Nodemailer
+        // Configuração do transporte com SMTP Gmail
         const transporter = nodemailer.createTransport({
-          service: 'gmail', // Ou outro serviço de email se necessário
+          service: 'gmail',
           auth: {
-            user: process.env.EMAIL_USER, // O email que vai enviar
-            pass: process.env.EMAIL_PASS, // A senha ou token do email
+            user: process.env.EMAIL_USER, // Email do remetente
+            pass: process.env.EMAIL_PASS, // Senha do remetente
           },
           tls: {
-            rejectUnauthorized: false, // Permite conexões inseguras (necessário para alguns casos)
+            rejectUnauthorized: false, // Para conexões seguras
           },
         });
 
-        // Envia o email
-        const info = await transporter.sendMail({
-          from: process.env.EMAIL_USER, // Email de envio
-          to: process.env.RECEIVE_EMAIL, // Email de destino
-          subject: 'Nova mensagem do chat', // Assunto do email
-          text: `Mensagem: ${message}\nEmail do usuário: ${email}`, // Corpo do email
-          replyTo: email, // Define o email do cliente como destinatário de respostas
-        });
+        // Opções de envio de email
+        const mailOptions = {
+          from: process.env.EMAIL_USER, // Remetente
+          to: process.env.RECEIVE_EMAIL, // Destinatário
+          subject: 'Nova mensagem do chat',
+          text: `Mensagem: ${message}\nEmail do usuário: ${email}`,
+          replyTo: email,
+        };
 
+        // Envio do email
+        const info = await transporter.sendMail(mailOptions);
         console.log('E-mail enviado:', info.response);
         return res.status(200).send('Email enviado com sucesso!');
       } catch (error) {
@@ -44,7 +44,6 @@ module.exports = async (req, res) => {
         return res.status(500).send('Erro ao enviar email');
       }
     } else {
-      // Caso o método da requisição não seja POST
       return res.status(405).send('Método não permitido');
     }
   });
