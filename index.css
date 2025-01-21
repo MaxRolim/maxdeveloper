@@ -6,12 +6,13 @@ html, body {
 
 body {
     background-color: rgb(0, 0, 0);
+    
 }
 
 .rodape1 {
     background-color: #ffffff;
     width: 100%;
-    height: 54%;
+    height: 95%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Centraliza os itens horizontalmente */
@@ -26,7 +27,9 @@ body {
 }
 
 .textoinicio h1 {
-    font-size: 50px;
+    position: relative;
+    top: 220px;
+    font-size: 70px;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     text-align: center;
@@ -40,8 +43,10 @@ body {
 }
 
 .textoinicio h2 {
+    top: 220px;
+    position: relative;
     color: #000000;
-    font-size: 25px;
+    font-size: 30px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     text-align: center;
@@ -50,14 +55,30 @@ body {
 }
 
 .textoinicio img {
-    margin-top: 40px;
-    width: 25%;
+    margin-top: 250px;
+    width: 30%;
     height: auto;
     border: 4px solid black;
     border-radius: 50%;
     gap: 10px;
 }
-
+.resumo {
+    padding: 0;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    color: #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Ajuste a distância entre os elementos */
+}
+#resumoimg  
+{
+    width: 70%;
+    height: 70%;
+    position: relative;
+    top: 100px;
+}
 @media (max-width: 600px) { /* Estilos para telas pequenas */
     .rodape1 {
         flex-direction: column;
@@ -71,6 +92,7 @@ body {
 }
 /*estilo do conteiner do chat*/
 #chat {
+    z-index: 10;
     width: 100%;
     max-width: 400px; /*Largura maxima*/
     position: fixed; /*Fixa o chat no canto da tela*/
